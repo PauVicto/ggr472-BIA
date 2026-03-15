@@ -3,24 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOCUMENT</title>
-    <!-- mapbox API -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css' rel='stylesheet' />
-
+    <title>A Day at the Beach BIA</title>
+    <!--Mapbox links-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.18.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.18.1/mapbox-gl.css' rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
-
-   <script src=""></script>
 </head>
 
 <body>
+    <div id='my-map' class="map-container"></div>
 
-    <div id='map' class='map'></div>
+    <!--Creating my legend-->
+    <div id="legend" class="legend">
+        <h3>Gems at the Beach BIA</h3>
+    </div>
 
-    <script src="script.js"></script>
+    <!--Loading mapbox-gl-geocoder plugin-->
+    <script
+        src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+        type="text/css">
 
+    <script src="script.js"></script> <!--Main script for my map-->
+    <script src="script-legend.js"></script> <!--Script for my legend-->
 </body>
 
 </html>
