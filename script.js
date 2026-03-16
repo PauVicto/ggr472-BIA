@@ -27,7 +27,7 @@ map.on('load', () => {
             'icon-image': ['match', ['get', 'category'],
                 'Coffee', 'cafe',
                 'Landmark/Attraction', 'star',
-                'Parks/Greenspaces', 'park',
+                'Parks/Greenspaces', 'building',
                 'Recreation', 'circle',
                 'marker'
             ],
