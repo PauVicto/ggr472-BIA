@@ -3,9 +3,10 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicGF1LXZpY3RvIiwiYSI6ImNta2Rib2s1bTA5d2MzZW9va
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/pau-victo/cmmqya137000y01s64wtr7038',
-    center: [-79.295, 43.671],
-    zoom: 13
+    center: [-79.30043604297481,43.66746180866858],
+    zoom: 14
 });
+
 
 map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
