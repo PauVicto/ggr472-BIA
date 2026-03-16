@@ -2,7 +2,97 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
-    right: 0;
     width: 100%;
+}
+
+
+.controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    z-index: 10;
+}
+
+.controls label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+
+/*Legend Stuff*/
+.legend {
+    position: absolute;
+    bottom: 35px;
+    right: 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    z-index: 10;
+}
+
+.legend h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.legend div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.legend-item {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.coffee {
+    background-color: #6F4E37;
+}
+
+.landmark {
+    background-color: #C0392B;
+}
+
+.park {
+    background-color: #228B22;
+}
+
+.recreation {
+    background-color: #2E86C1;
+}
+
+.legend-route {
+    width: 20px;
+    height: 4px;
+    display: inline-block;
+    margin-right: 8px;
+    border-radius: 2px;
+}
+
+
+/* Route Legend colors*/
+.Fall {
+    background-color: #DC7633;
+}
+.Spring {
+    background-color: #58D68D;
+}
+.Summer {
+    background-color: #F5B041;
+}
+.Winter {
+    background-color: #5DADE2;
 }

@@ -2,32 +2,43 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Day at the Beach BIA</title>
-    <!--Mapbox links-->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v3.18.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v3.18.1/mapbox-gl.css' rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <title>Gems at the Beach BIA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div id='my-map' class="map-container"></div>
 
-    <!--Creating my legend-->
-    <div id="legend" class="legend">
-        <h3>Gems at the Beach BIA</h3>
+    <div class="controls">
+        <h3>Toggle Seasonal Routes</h3>
+        <label><input type="checkbox" id="show-fall"> Fall Route</label>
+        <label><input type="checkbox" id="show-spring"> Spring Route</label>
+        <label><input type="checkbox" id="show-summer"> Summer Route</label>
+        <label><input type="checkbox" id="show-winter"> Winter Route</label>
+        <label><input type="checkbox" id="show-poi" checked> POI </label>
     </div>
 
-    <!--Loading mapbox-gl-geocoder plugin-->
-    <script
-        src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js'></script>
-    <link rel="stylesheet"
-        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
-        type="text/css">
 
-    <script src="script.js"></script> <!--Main script for my map-->
-    <!-- <script src="script-legend.js"></script> Script for my legend-->
+    <!--Legend Stuff-->
+    <div class="legend">
+        <h3>Legend</h3>
+        <div><span class="legend-item coffee"></span> Coffee</div>
+        <div><span class="legend-item landmark"></span> Landmark/Attraction</div>
+        <div><span class="legend-item park"></span> Park/Greenspace</div>
+        <div><span class="legend-item recreation"></span> Recreation</div>
+        <div><span class="legend-route Fall"></span> Fall Route</div>
+        <div><span class="legend-route Spring"></span> Spring Route</div>
+        <div><span class="legend-route Summer"></span> Summer Route</div>
+        <div><span class="legend-route Winter"></span> Winter Route</div>
+    </div>
+
+        <div id="map" class="map"></div>
+
+        <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+        <script src="script.js"></script>
 </body>
 
 </html>
