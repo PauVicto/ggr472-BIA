@@ -153,3 +153,20 @@
     background-color: var(--color-bench);
     border-radius: 0;
 }
+
+/* zoom to full extent control button */
+.zoom-extent-btn {
+    width: 29px;
+    height: 29px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #333;
+}
+.zoom-extent-btn::before {
+    content: '⊕';
+}
