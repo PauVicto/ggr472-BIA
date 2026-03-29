@@ -116,7 +116,7 @@ map.on('load', () => {
         }
     });
 
-    //mar16 DRY refactor — loop to add all route sources and layers from config
+    //mar16 loop to add all route sources and layers from config
     ROUTES.forEach(route => {
         const sourceId = `${route.id}-route`;
         const lineLayerId = `${route.id}-route-layer`;
@@ -149,31 +149,6 @@ map.on('load', () => {
                 'icon-size': 1.2,
                 'icon-allow-overlap': true,
                 'visibility': 'none'
-            }
-        });
-    });
-
-    //mar29 route line click — isolate route, highlight, and zoom to extent
-    ROUTES.forEach(route => {
-        map.on('click', `${route.id}-route-layer`, () => {
-            //mar29 reset previous route's line-width before switching
-            if (activeRouteId && activeRouteId !== route.id) {
-                map.setPaintProperty(`${activeRouteId}-route-layer`, 'line-width', 2);
-            }
-            activeRouteId = route.id;
-
-            //mar29 hide all other routes, show clicked one, sync panel states
-            ROUTES.forEach(r => setRouteActive(r.id, r.id === route.id));
-            map.setPaintProperty(`${route.id}-route-layer`, 'line-width', 4);
-
-            //mar29 fit map to full extent of clicked route's LineString
-            const features = map.querySourceFeatures(`${route.id}-route`, {
-                filter: ['==', '$type', 'LineString']
-            });
-            if (features.length > 0) {
-                const bounds = new mapboxgl.LngLatBounds();
-                features.forEach(f => f.geometry.coordinates.forEach(c => bounds.extend([c[0], c[1]])));
-                map.fitBounds(bounds, { padding: 60 });
             }
         });
     });
@@ -229,11 +204,9 @@ map.on('click', 'poi-layer', showPopup);
 //mar16 loop for route point popups and cursor handlers
 const interactiveLayers = ['poi-layer'];
 
-//mar29 push both line and point layer ids for cursor and click handling
+//mar29 push point layer ids for cursor and popup handling (line layers no longer interactive)
 ROUTES.forEach(route => {
-    const lineLayerId = `${route.id}-route-layer`;
     const pointLayerId = `${route.id}-route-points`;
-    interactiveLayers.push(lineLayerId);
     interactiveLayers.push(pointLayerId);
     map.on('click', pointLayerId, showPopup);
 });
@@ -266,20 +239,62 @@ function setRouteActive(routeId, active) {
     if (panel) panel.classList.toggle('active', active);
 }
 
-//mar29 panel click — toggle route on/off and reset highlight if deactivating
+//mar29 fetch-based bounds cache — avoids querySourceFeatures tile-load race condition
+const routeBoundsCache = {};
+function getRouteBounds(route) {
+    if (!routeBoundsCache[route.id]) {
+        routeBoundsCache[route.id] = fetch(route.url)
+            .then(r => r.json())
+            .then(geojson => {
+                const bounds = new mapboxgl.LngLatBounds();
+                geojson.features
+                    .filter(f => f.geometry.type === 'LineString')
+                    .forEach(f => f.geometry.coordinates.forEach(c => bounds.extend([c[0], c[1]])));
+                return bounds.isEmpty() ? null : bounds;
+            })
+            .catch(() => null);
+    }
+    return routeBoundsCache[route.id];
+}
+
+//mar29 panel click — toggle route, zoom to extent on activate, full extent when none active
 ROUTES.forEach(route => {
     document.getElementById(`panel-${route.id}`).addEventListener('click', () => {
         const panel = document.getElementById(`panel-${route.id}`);
         const isActive = panel.classList.contains('active');
+
         if (isActive) {
+            //mar29 deactivate: reset highlight if this was the focused route
             if (activeRouteId === route.id) {
                 if (map.getLayer(`${route.id}-route-layer`))
                     map.setPaintProperty(`${route.id}-route-layer`, 'line-width', 2);
                 activeRouteId = null;
             }
             setRouteActive(route.id, false);
+
+            //mar29 if no panels remain active, return to full extent
+            const anyActive = ROUTES.some(r =>
+                document.getElementById(`panel-${r.id}`).classList.contains('active')
+            );
+            if (!anyActive) {
+                map.flyTo({ center: MAP_CONFIG.center, zoom: MAP_CONFIG.zoom });
+            }
+
         } else {
+            //mar29 activate: reset previous highlight, set new active route, zoom to extent
+            if (activeRouteId && activeRouteId !== route.id) {
+                if (map.getLayer(`${activeRouteId}-route-layer`))
+                    map.setPaintProperty(`${activeRouteId}-route-layer`, 'line-width', 2);
+            }
+            activeRouteId = route.id;
             setRouteActive(route.id, true);
+            if (map.getLayer(`${route.id}-route-layer`))
+                map.setPaintProperty(`${route.id}-route-layer`, 'line-width', 4);
+
+            //mar29 fit map to full extent using pre-fetched bounds
+            getRouteBounds(route).then(bounds => {
+                if (bounds) map.fitBounds(bounds, { padding: 60 });
+            });
         }
     });
 });
