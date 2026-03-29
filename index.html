@@ -14,18 +14,86 @@
 
 <body>
 
-    <div class="controls">
-        <h3>Toggle Seasonal Routes</h3>
-        <!--mar16 add explicit for attributes for accessibility -->
-        <label for="show-fall"><input type="checkbox" id="show-fall"> Fall Route</label>
-        <label for="show-spring"><input type="checkbox" id="show-spring"> Spring Route</label>
-        <label for="show-summer"><input type="checkbox" id="show-summer"> Summer Route</label>
-        <label for="show-winter"><input type="checkbox" id="show-winter"> Winter Route</label>
-        <label for="show-poi"><input type="checkbox" id="show-poi" checked> POI </label>
-        <h3>City Amenities</h3>
-        <label for="washrooms-toggle"><input type="checkbox" id="washrooms-toggle"> Washrooms</label>
-        <label for="fountains-toggle"><input type="checkbox" id="fountains-toggle"> Drinking Fountains</label>
-        <label for="benches-toggle"><input type="checkbox" id="benches-toggle"> Benches</label>
+    <!--mar29 panel sidebar, route cards replace checkboxes -->
+    <div class="sidebar">
+
+        <div class="route-panel" id="panel-fall" style="--panel-color: #DC7633">
+            <div class="panel-stripe"></div>
+            <div class="panel-body">
+                <div class="panel-header">
+                    <span class="panel-title">Fall Route</span>
+                </div>
+                <p class="panel-desc">Wander through the Glen Stewart Ravine as the leaves turn.</p>
+                <div class="panel-stops">
+                    <span class="stop-dot"></span>
+                    <span class="stop-name">Beaches Library</span>
+                    <span class="stop-line"></span>
+                    <span class="stop-dot"></span>
+                    <span class="stop-name">Glen Stewart Park</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="route-panel" id="panel-spring" style="--panel-color: #58D68D">
+            <div class="panel-stripe"></div>
+            <div class="panel-body">
+                <div class="panel-header">
+                    <span class="panel-title">Spring Route</span>
+                </div>
+                <p class="panel-desc">Stroll from Ivan Forrest Gardens to Kew Gardens in full bloom.</p>
+                <div class="panel-stops">
+                    <span class="stop-dot"></span>
+                    <span class="stop-name">Ivan Forrest Gardens</span>
+                    <span class="stop-line"></span>
+                    <span class="stop-dot"></span>
+                    <span class="stop-name">Kew Gardens Gazebo</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="route-panel" id="panel-summer" style="--panel-color: #F5B041">
+            <div class="panel-stripe"></div>
+            <div class="panel-body">
+                <div class="panel-header">
+                    <span class="panel-title">Summer Route</span>
+                </div>
+                <p class="panel-desc">From Kew Gardens Cottage through Woodbine Park to the Beach.</p>
+                <div class="panel-stops">
+                    <span class="stop-dot"></span>
+                    <span class="stop-name">Kew Gardens Cottage</span>
+                    <span class="stop-line"></span>
+                    <span class="stop-dot"></span>
+                    <span class="stop-name">Woodbine Beach</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="route-panel" id="panel-winter" style="--panel-color: #5DADE2">
+            <div class="panel-stripe"></div>
+            <div class="panel-body">
+                <div class="panel-header">
+                    <span class="panel-title">Winter Route</span>
+                </div>
+                <p class="panel-desc">A crisp walk from Ivan Forrest Gardens to the Kew Gardens Ice Rink.</p>
+                <div class="panel-stops">
+                    <span class="stop-dot"></span>
+                    <span class="stop-name">Ivan Forrest Gardens</span>
+                    <span class="stop-line"></span>
+                    <span class="stop-dot"></span>
+                    <span class="stop-name">Kew Gardens Ice Rink</span>
+                </div>
+            </div>
+        </div>
+
+        <!--mar29 city amenities compact section -->
+        <div class="amenities-panel">
+            <p class="amenities-title">City Amenities</p>
+            <label class="amenity-toggle"><input type="checkbox" id="washrooms-toggle"> Washrooms</label>
+            <label class="amenity-toggle"><input type="checkbox" id="fountains-toggle"> Drinking Fountains</label>
+            <label class="amenity-toggle"><input type="checkbox" id="benches-toggle"> Benches</label>
+            <label class="amenity-toggle"><input type="checkbox" id="show-poi" checked> POI</label>
+        </div>
+
     </div>
 
 

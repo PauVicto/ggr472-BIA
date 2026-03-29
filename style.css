@@ -24,22 +24,133 @@
 }
 
 
-.controls {
+/*mar29 panel sidebar — replaces .controls */
+.sidebar {
     position: absolute;
     top: 20px;
     left: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 5px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     z-index: 10;
+    width: 230px;
 }
 
-.controls label {
-    display: block;
+.route-panel {
+    display: flex;
+    background: rgba(255, 255, 255, 0.82);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.2s, opacity 0.2s, background 0.2s;
+    opacity: 0.68;
+}
+
+.route-panel:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    opacity: 0.88;
+}
+
+.route-panel.active {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+}
+
+.panel-stripe {
+    width: 6px;
+    background-color: var(--panel-color, #ccc);
+    flex-shrink: 0;
+    transition: width 0.2s;
+}
+
+.route-panel.active .panel-stripe {
+    width: 8px;
+}
+
+.panel-body {
+    padding: 10px 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.panel-title {
+    font-weight: 700;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+.panel-desc {
+    font-size: 11px;
+    color: #555;
+    font-family: Arial, sans-serif;
+    margin: 0 0 7px 0;
+    line-height: 1.4;
+}
+
+.panel-stops {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: #777;
+    font-family: Arial, sans-serif;
+}
+
+.stop-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--panel-color, #ccc);
+    flex-shrink: 0;
+}
+
+.stop-line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--panel-color, #ccc);
+    opacity: 0.45;
+}
+
+.stop-name {
+    white-space: nowrap;
+    max-width: 68px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.amenities-panel {
+    background: rgba(255, 255, 255, 0.82);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+.amenities-title {
+    font-weight: 700;
+    font-size: 11px;
+    color: #555;
+    margin: 0 0 7px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.amenity-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     margin-bottom: 5px;
     color: #333;
+    cursor: pointer;
 }
 
 
