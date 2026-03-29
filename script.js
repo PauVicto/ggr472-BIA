@@ -15,9 +15,9 @@ const ROUTES = [
 
 // city amenity layers — Toronto Open Data (filtered to The Beach)
 const CITY_LAYERS = [
-    { id: 'washrooms',          label: 'Washrooms',          icon: 'cross',          color: '#1565C0', file: 'washrooms.geojson',          checkboxId: 'washrooms-toggle' },
+    { id: 'washrooms', label: 'Washrooms', icon: 'cross', color: '#1565C0', file: 'washrooms.geojson', checkboxId: 'washrooms-toggle' },
     { id: 'drinking-fountains', label: 'Drinking Fountains', icon: 'circle-stroked', color: '#00838F', file: 'drinking-fountains.geojson', checkboxId: 'fountains-toggle' },
-    { id: 'benches',            label: 'Benches',            icon: 'square',         color: '#2E7D32', file: 'benches.geojson',            checkboxId: 'benches-toggle'   }
+    { id: 'benches', label: 'Benches', icon: 'square', color: '#2E7D32', file: 'benches.geojson', checkboxId: 'benches-toggle' }
 ];
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicGF1LXZpY3RvIiwiYSI6ImNta2Rib2s1bTA5d2MzZW9vaGF2a3hrczkifQ.ie1nrw6qR60q70TUdf5B_w';
