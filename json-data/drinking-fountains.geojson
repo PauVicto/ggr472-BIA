@@ -1,0 +1,455 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.31822782,
+          43.670787729999994
+        ]
+      },
+      "properties": {
+        "name": "Moncur Playground Drinking Fountain",
+        "location": "Moncur Playground",
+        "type": "Drinking Fountain",
+        "location_details": "Located at the entrance to the park from Lower Coxwell Avenue.",
+        "address": "10 Gainsborough Rd  ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.31976403,
+          43.66460433
+        ]
+      },
+      "properties": {
+        "name": "Jonathan Ashbridge Park Fieldhouse Bottle Filling Station",
+        "location": "Jonathan Ashbridge Park",
+        "type": "Bottle Filling Station",
+        "location_details": "Located next to the fieldhouse washroom building.",
+        "address": "1515 Queen St  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.31984857,
+          43.66538094
+        ]
+      },
+      "properties": {
+        "name": "Jonathan Ashbridge Park Drinking Fountain",
+        "location": "Jonathan Ashbridge Park",
+        "type": "Drinking Fountain",
+        "location_details": "Located near the corner of Queen Street East and Woodward Avenue.",
+        "address": "1515 Queen St  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.31204613,
+          43.66483708
+        ]
+      },
+      "properties": {
+        "name": "Woodbine Park Fieldhouse Drinking Water Station",
+        "location": "Woodbine Park",
+        "type": "Drinking Fountain, Dog Fountain",
+        "location_details": "Located outside the fieldhouse on the east side of the building.",
+        "address": "1695 Queen St  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.31210075,
+          43.66484813
+        ]
+      },
+      "properties": {
+        "name": "Woodbine Park Fieldhouse Bottle Filling Station",
+        "location": "Woodbine Park",
+        "type": "Bottle Filling Station",
+        "location_details": "Located on the outside the fieldhouse on the east side of the building.",
+        "address": "1695 Queen St  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.30762687999999,
+          43.66320305
+        ]
+      },
+      "properties": {
+        "name": "Woodbine Beach Park Boardwalk Drinking Fountain",
+        "location": "Woodbine Beach Park",
+        "type": "Drinking Fountain",
+        "location_details": "Located north of the boardwalk east of the parking lot.",
+        "address": "1675 Lake Shore Blvd  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.30786925,
+          43.66296223
+        ]
+      },
+      "properties": {
+        "name": "Woodbine Beach Boardwalk Park Bottle Filling Station",
+        "location": "Woodbine Beach Park",
+        "type": "Bottle Filling Station",
+        "location_details": "Located outside the bathing station along the boardwalk.",
+        "address": "1675 Lake Shore Blvd  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.30798369,
+          43.66279369
+        ]
+      },
+      "properties": {
+        "name": "Woodbine Beach Park Bathing Station Bottle Filling Station",
+        "location": "Woodbine Beach Park",
+        "type": "Bottle Filling Station",
+        "location_details": "Located infront of the bathing station. ",
+        "address": "1675 Lake Shore Blvd  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.3073938,
+          43.65826136
+        ]
+      },
+      "properties": {
+        "name": "Ashbridges Bay Park Picnic Site 1 Drinking Water Station",
+        "location": "Ashbridges Bay Park",
+        "type": "Drinking Fountain, Dog Fountain",
+        "location_details": "Located on the pathway on the west side of Picnic Site #1.",
+        "address": "1561 Lake Shore Blvd  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.30883534,
+          43.65876673
+        ]
+      },
+      "properties": {
+        "name": "Ashbridges Bay Park Boardwalk Drinking Fountain",
+        "location": "Ashbridges Bay Park",
+        "type": "Drinking Fountain",
+        "location_details": "Located on the boardwalk in front of the washrooms.",
+        "address": "1561 Lake Shore Blvd  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.30890403,
+          43.65877231
+        ]
+      },
+      "properties": {
+        "name": "Ashbridges Bay Park Boardwalk Bottle Filling Station",
+        "location": "Ashbridges Bay Park",
+        "type": "Bottle Filling Station",
+        "location_details": "Located on the boardwalk in front of the washrooms.",
+        "address": "1561 Lake Shore Blvd  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.31365545999999,
+          43.66886341
+        ]
+      },
+      "properties": {
+        "name": "Orchard Park Splash Pad Drinking Fountain",
+        "location": "Orchard Park",
+        "type": "Drinking Fountain",
+        "location_details": "Located next to the splash pad.",
+        "address": "1987 Dundas St  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.28454146,
+          43.67034125
+        ]
+      },
+      "properties": {
+        "name": "Balmy Beach Park Silver Birch Boathouse Drinking Fountain",
+        "location": "Balmy Beach Park",
+        "type": "Drinking Fountain",
+        "location_details": "Located on the east side of the Silver Birch Boathouse.",
+        "address": "1 Beech Ave  ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.28975507999999,
+          43.668915
+        ]
+      },
+      "properties": {
+        "name": "Balmy Beach Park MacLean Drinking Water Station",
+        "location": "Balmy Beach Park",
+        "type": "Bottle Filling Station, Drinking Fountain",
+        "location_details": "Located on the Martin Goodman Trail at MacLean Avenue.",
+        "address": "1 Beech Ave  ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.28478768,
+          43.67021972
+        ]
+      },
+      "properties": {
+        "name": "Balmy Beach Park Boardwalk Bottle Filling Station",
+        "location": "Balmy Beach Park",
+        "type": "Bottle Filling Station",
+        "location_details": "Located next to the Boardwalk at the west end of the Silver Birch Boathouse.",
+        "address": "1 Beech Ave  ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.29621946,
+          43.66695891
+        ]
+      },
+      "properties": {
+        "name": "Beaches Park Boathouse Bottle Filling Station",
+        "location": "Beaches Park",
+        "type": "Bottle Filling Station",
+        "location_details": "Located on the pathway between the Martin Goodman Trail and the boathouse.",
+        "address": "2075 Queen St  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.29968425999999,
+          43.66954689
+        ]
+      },
+      "properties": {
+        "name": "Kew Gardens Wading Pool Drinking Fountain",
+        "location": "Kew Gardens",
+        "type": "Drinking Fountain",
+        "location_details": "Located next to the wading pool.",
+        "address": "2075 Queen St  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.29783780999999,
+          43.66802948
+        ]
+      },
+      "properties": {
+        "name": "Kew Gardens Drinking Fountain",
+        "location": "Kew Gardens",
+        "type": "Drinking Fountain",
+        "location_details": "Located along the main pathway, west of the park garage.",
+        "address": "2075 Queen St  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.29808676,
+          43.66850461
+        ]
+      },
+      "properties": {
+        "name": "Kew Gardens Baseball Diamond Drinking Fountain",
+        "location": "Kew Gardens",
+        "type": "Drinking Fountain",
+        "location_details": "Located along the east side of the baseball diamond.",
+        "address": "2075 Queen St  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.29264683999999,
+          43.67173558
+        ]
+      },
+      "properties": {
+        "name": "Ivan Forrest Gardens Drinking Water Station",
+        "location": "Ivan Forrest Gardens",
+        "type": "Bottle Filling Station, Drinking Fountain, Dog Fountain",
+        "location_details": "Located at the corner of Queen Street East and Glen Manor Drive.",
+        "address": "131 Glen Manor Dr  ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.31580255,
+          43.67522619
+        ]
+      },
+      "properties": {
+        "name": "Fairmount Park Drinking Water Station",
+        "location": "Fairmount Park",
+        "type": "Bottle Filling Station, Drinking Fountain",
+        "location_details": "Located on the pathway south of the wading pool.",
+        "address": "1725 Gerrard St  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.31537574,
+          43.67661715
+        ]
+      },
+      "properties": {
+        "name": "Fairmount Park Drinking Water Station",
+        "location": "Fairmount Park",
+        "type": "Bottle Filling Station, Drinking Fountain",
+        "location_details": "Located on the pathway outside the front entrance to the Community Centre.",
+        "address": "1725 Gerrard St  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.30668354000001,
+          43.67995139000001
+        ]
+      },
+      "properties": {
+        "name": "Cassels Avenue Playground Drinking Fountain",
+        "location": "Cassels Avenue Playground",
+        "type": "Drinking Fountain",
+        "location_details": "Located at the south side of the splash pad. ",
+        "address": "69 Cassels Ave  ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.3106809,
+          43.664578
+        ]
+      },
+      "properties": {
+        "name": "Woodbine Park Splash Pad Bottle Filling Station ",
+        "location": "Woodbine Park",
+        "type": "Bottle Filling Station",
+        "location_details": "Located northwest of the splash pad on the east side of the pathway.",
+        "address": "1695 Queen St  E ",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.31682671,
+          43.66345169
+        ]
+      },
+      "properties": {
+        "name": "Main Sewage Treatment Playground Rugby Field Bottle Filling Station",
+        "location": "Main Sewage Treatment Playground",
+        "type": "Bottle Filling Station",
+        "location_details": "Located north of the rugby field by the west end of the parking lot.",
+        "address": "1091 Eastern Ave  ",
+        "status": "0"
+      }
+    }
+  ]
+}

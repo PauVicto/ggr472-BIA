@@ -1,0 +1,233 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.29819958,
+          43.666535509999996
+        ]
+      },
+      "properties": {
+        "name": "Kew Gardens Outdoor Rink Washroom",
+        "location": "Kew Gardens",
+        "type": "Washroom Building",
+        "hours": "View outdoor rink hours",
+        "address": "2075 Queen St  E ",
+        "accessible": "",
+        "status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.30791821,
+          43.66274627
+        ]
+      },
+      "properties": {
+        "name": "Woodbine Bathing Station Washroom ",
+        "location": "Woodbine Beach Park",
+        "type": "Washroom Building",
+        "hours": "9 a.m. to 10 p.m.",
+        "address": "1675 Lake Shore Blvd  E ",
+        "accessible": "",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.29995588999999,
+          43.66927847
+        ]
+      },
+      "properties": {
+        "name": "Kew Gardens Playground Washroom",
+        "location": "Kew Gardens",
+        "type": "Washroom Building",
+        "hours": "9 a.m. to 10 p.m.",
+        "address": "2075 Queen St  E ",
+        "accessible": "Entrance at Grade, Child Change Table",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.28472318,
+          43.67032614
+        ]
+      },
+      "properties": {
+        "name": "Silverbirch Boat House Washroom",
+        "location": "Silverbirch Boat House",
+        "type": "Washroom Building",
+        "hours": "9 a.m. to 10 p.m.",
+        "address": "2 Silver Birch Ave  ",
+        "accessible": "Entrance at Grade, Entrance Access Ramp",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.30887446,
+          43.658722850000004
+        ]
+      },
+      "properties": {
+        "name": "Ashbridges Bay Park Washroom ",
+        "location": "Ashbridges Bay Park",
+        "type": "Washroom Building",
+        "hours": "9 a.m. to 10 p.m.",
+        "address": "1561 Lake Shore Blvd  E ",
+        "accessible": "Entrance at Grade, Child Change Table",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.30471172,
+          43.66496518
+        ]
+      },
+      "properties": {
+        "name": "Donald D. Summerville Olympic Outdoor Pool Washroom",
+        "location": "Donald D. Summerville Olympic Pools",
+        "type": "Washroom Building",
+        "hours": "9 a.m. to 10 p.m.",
+        "address": "1867 Lake Shore Blvd  E ",
+        "accessible": "Entrance at Grade, Child Change Table",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.31972975,
+          43.66464356
+        ]
+      },
+      "properties": {
+        "name": "Jonathan Ashbridge Park Fieldhouse Washroom",
+        "location": "Jonathan Ashbridge Park",
+        "type": "Washroom Building",
+        "hours": "9 a.m. to 10 p.m.",
+        "address": "1515 Queen St  E ",
+        "accessible": "Entrance at Grade",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.30189753,
+          43.6664395
+        ]
+      },
+      "properties": {
+        "name": "Pantry Park Fieldhouse Washroom",
+        "location": "Pantry Park",
+        "type": "Washroom Building",
+        "hours": "9 a.m. to 10 p.m.",
+        "address": "70 Kewbeach Ave  ",
+        "accessible": "Accessible Stall, Entrance at Grade",
+        "status": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.31221235000001,
+          43.664857
+        ]
+      },
+      "properties": {
+        "name": "Woodbine Park Washroom",
+        "location": "Woodbine Park",
+        "type": "Washroom Building",
+        "hours": "9 a.m. to 10 p.m.",
+        "address": "1695 Queen St  E ",
+        "accessible": "Entrance at Grade, Child Change Table",
+        "status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.29730372,
+          43.66657292
+        ]
+      },
+      "properties": {
+        "name": "Kew Beach Lawn Bowling Club Washroom",
+        "location": "Kew Beach Lawn Bowling Club",
+        "type": "Washroom Building",
+        "hours": "9 a.m. to 10 p.m.",
+        "address": "2075 Queen St  E ",
+        "accessible": "Accessible Stall, Entrance at Grade, Child Change Table",
+        "status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.31492361,
+          43.67670825
+        ]
+      },
+      "properties": {
+        "name": "Fairmount Park Community Centre Washroom",
+        "location": "Fairmount Park Community Centre",
+        "type": "Washroom Building",
+        "hours": "View centre hours",
+        "address": "1725 Gerrard St E",
+        "accessible": "None",
+        "status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.29877839,
+          43.67398328
+        ]
+      },
+      "properties": {
+        "name": "Beaches Recreation Centre Washroom",
+        "location": "Beaches Recreation Centre",
+        "type": "Washroom Building",
+        "hours": "View centre hours",
+        "address": "6 Williamson Rd  ",
+        "accessible": "",
+        "status": "1"
+      }
+    }
+  ]
+}
