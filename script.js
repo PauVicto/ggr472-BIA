@@ -1,12 +1,26 @@
+//mar16 extract map configuration to a single config object
+const MAP_CONFIG = {
+    center: [-79.30043604297481, 43.66746180866858],
+    zoom: 14,
+    style: 'mapbox://styles/pau-victo/cmmqya137000y01s64wtr7038'
+};
+
+//mar16 route configuration — single source of truth for all seasonal routes
+const ROUTES = [
+    { id: 'fall',   checkboxId: 'show-fall',   color: '#DC7633', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_fall_draft.geojson' },
+    { id: 'spring', checkboxId: 'show-spring', color: '#58D68D', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_spring_draft.geojson' },
+    { id: 'summer', checkboxId: 'show-summer', color: '#F5B041', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_summer_draft.geojson' },
+    { id: 'winter', checkboxId: 'show-winter', color: '#5DADE2', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_winter_draft.geojson' }
+];
+
 mapboxgl.accessToken = 'pk.eyJ1IjoicGF1LXZpY3RvIiwiYSI6ImNta2Rib2s1bTA5d2MzZW9vaGF2a3hrczkifQ.ie1nrw6qR60q70TUdf5B_w';
 
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/pau-victo/cmmqya137000y01s64wtr7038',
-    center: [-79.30043604297481,43.66746180866858],
-    zoom: 14
+    style: MAP_CONFIG.style,
+    center: MAP_CONFIG.center,
+    zoom: MAP_CONFIG.zoom
 });
-
 
 map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
@@ -46,269 +60,101 @@ map.on('load', () => {
         }
     });
 
-    // Fall route source and layers
-    map.addSource('fall-route', {
-        type: 'geojson',
-        data: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_fall_draft.geojson'
-    });
+    //mar16 DRY refactor — loop to add all route sources and layers from config
+    ROUTES.forEach(route => {
+        const sourceId = `${route.id}-route`;
+        const lineLayerId = `${route.id}-route-layer`;
+        const pointLayerId = `${route.id}-route-points`;
 
-    map.addLayer({
-        id: 'fall-route-layer',
-        type: 'line',
-        source: 'fall-route',
-        filter: ['==', '$type', 'LineString'],
-        layout: {
-            'visibility': 'none'
-        },
-        paint: {
-            'line-color': '#DC7633',
-            'line-width': 2
-        }
-    });
+        map.addSource(sourceId, {
+            type: 'geojson',
+            data: route.url
+        });
 
-    map.addLayer({
-        id: 'fall-route-points',
-        type: 'symbol',
-        source: 'fall-route',
-        filter: ['==', '$type', 'Point'],
-        layout: {
-            'icon-image': 'star',
-            'icon-size': 1.2,
-            'icon-allow-overlap': true,
-            'visibility': 'none'
-        }
-    });
+        map.addLayer({
+            id: lineLayerId,
+            type: 'line',
+            source: sourceId,
+            filter: ['==', '$type', 'LineString'],
+            layout: { 'visibility': 'none' },
+            paint: {
+                'line-color': route.color,
+                'line-width': 2
+            }
+        });
 
-    // Spring route source and layers
-    map.addSource('spring-route', {
-        type: 'geojson',
-        data: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_spring_draft.geojson'
-    });
-
-    map.addLayer({
-        id: 'spring-route-layer',
-        type: 'line',
-        source: 'spring-route',
-        filter: ['==', '$type', 'LineString'],
-        layout: {
-            'visibility': 'none'
-        },
-        paint: {
-            'line-color': '#58D68D',
-            'line-width': 2
-        }
-    });
-    map.addLayer({
-        id: 'spring-route-points',
-        type: 'symbol',
-        source: 'spring-route',
-        filter: ['==', '$type', 'Point'],
-        layout: {
-            'icon-image': 'star',
-            'icon-size': 1.2,
-            'icon-allow-overlap': true,
-            'visibility': 'none'
-        }
-    });
-
-    // Summer route source and layers
-    map.addSource('summer-route', {
-        type: 'geojson',
-        data: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_summer_draft.geojson'
-    });
-
-    map.addLayer({
-        id: 'summer-route-layer',
-        type: 'line',
-        source: 'summer-route',
-        filter: ['==', '$type', 'LineString'],
-        layout: {
-            'visibility': 'none'
-        },
-        paint: {
-            'line-color': '#F5B041',
-            'line-width': 2
-        }
-    });
-
-    map.addLayer({
-        id: 'summer-route-points',
-        type: 'symbol',
-        source: 'summer-route',
-        filter: ['==', '$type', 'Point'],
-        layout: {
-            'icon-image': 'star',
-            'icon-size': 1.2,
-            'icon-allow-overlap': true,
-            'visibility': 'none'
-        }
-    });
-    // Winter route source and layers
-    map.addSource('winter-route', {
-        type: 'geojson',
-        data: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_winter_draft.geojson'
-    });
-
-    map.addLayer({
-        id: 'winter-route-layer',
-        type: 'line',
-        source: 'winter-route',
-        filter: ['==', '$type', 'LineString'],
-        layout: {
-            'visibility': 'none'
-        },
-        paint: {
-            'line-color': '#5DADE2',
-            'line-width': 2
-        }
-    });
-
-    map.addLayer({
-        id: 'winter-route-points',
-        type: 'symbol',
-        source: 'winter-route',
-        filter: ['==', '$type', 'Point'],
-        layout: {
-            'icon-image': 'star',
-            'icon-size': 1.2,
-            'icon-allow-overlap': true,
-            'visibility': 'none'
-        }
+        map.addLayer({
+            id: pointLayerId,
+            type: 'symbol',
+            source: sourceId,
+            filter: ['==', '$type', 'Point'],
+            layout: {
+                'icon-image': 'star',
+                'icon-size': 1.2,
+                'icon-allow-overlap': true,
+                'visibility': 'none'
+            }
+        });
     });
 
 });
 
-//ALL POPUPS
-
-// base POI popups
-map.on('click', 'poi-layer', (e) => {
-    const name = e.features[0].properties.name;
-    const category = e.features[0].properties.category;
-    const address = e.features[0].properties.address;
+//mar16 shared popup helper — handles both POI (lowercase) and route (lowercase after schema fix) properties
+function showPopup(e) {
+    if (!e.features || !e.features[0]) return;
+    const props = e.features[0].properties;
+    const name = props.name || props.Name || 'Unknown';
+    const detail = props.category || props.note || props.Note || '';
+    const address = props.address || props.Address || '';
 
     new mapboxgl.Popup()
         .setLngLat(e.features[0].geometry.coordinates)
-        .setHTML(`<strong>${name}</strong><br>${category}<br>${address}`)
+        .setHTML(`<strong>${name}</strong><br>${detail}<br>${address}`)
         .addTo(map);
+}
+
+//mar16 single popup handler for POI layer
+map.on('click', 'poi-layer', showPopup);
+
+//mar16 loop for route point popups and cursor handlers
+const interactiveLayers = ['poi-layer'];
+
+ROUTES.forEach(route => {
+    const pointLayerId = `${route.id}-route-points`;
+    interactiveLayers.push(pointLayerId);
+    map.on('click', pointLayerId, showPopup);
 });
 
-
-//ROUTE POINTS need consistent property names (fix later)
-// Fall route points popup
-map.on('click', 'fall-route-points', (e) => {
-    const name = e.features[0].properties.Name;
-    const category = e.features[0].properties.Note;
-    const address = e.features[0].properties.Address;
-
-    new mapboxgl.Popup()
-        .setLngLat(e.features[0].geometry.coordinates)
-        .setHTML(`<strong>${name}</strong><br>${category}<br>${address}`)
-        .addTo(map);
+//mar16 loop for cursor change on all interactive layers
+interactiveLayers.forEach(layerId => {
+    map.on('mouseenter', layerId, () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', layerId, () => {
+        map.getCanvas().style.cursor = '';
+    });
 });
 
-// Spring route points popup
-map.on('click', 'spring-route-points', (e) => {
-    const name = e.features[0].properties.Name;
-    const category = e.features[0].properties.Note;
-    const address = e.features[0].properties.Address;
+//mar16 loop for route toggle handlers
+ROUTES.forEach(route => {
+    const lineLayerId = `${route.id}-route-layer`;
+    const pointLayerId = `${route.id}-route-points`;
 
-    new mapboxgl.Popup()
-        .setLngLat(e.features[0].geometry.coordinates)
-        .setHTML(`<strong>${name}</strong><br>${category}<br>${address}`)
-        .addTo(map);
+    document.getElementById(route.checkboxId).addEventListener('change', (e) => {
+        const visibility = e.target.checked ? 'visible' : 'none';
+        //mar16 add layer existence check before toggling
+        if (map.getLayer(lineLayerId)) {
+            map.setLayoutProperty(lineLayerId, 'visibility', visibility);
+        }
+        if (map.getLayer(pointLayerId)) {
+            map.setLayoutProperty(pointLayerId, 'visibility', visibility);
+        }
+    });
 });
 
-// Summer route points popup
-map.on('click', 'summer-route-points', (e) => {
-    const name = e.features[0].properties.Name;
-    const category = e.features[0].properties.Note;
-    const address = e.features[0].properties.Address;
-
-    new mapboxgl.Popup()
-        .setLngLat(e.features[0].geometry.coordinates)
-        .setHTML(`<strong>${name}</strong><br>${category}<br>${address}`)
-        .addTo(map);
-});
-
-// Winter route points popup
-map.on('click', 'winter-route-points', (e) => {
-    const name = e.features[0].properties.Name;
-    const category = e.features[0].properties.Note;
-    const address = e.features[0].properties.Address;
-
-    new mapboxgl.Popup()
-        .setLngLat(e.features[0].geometry.coordinates)
-        .setHTML(`<strong>${name}</strong><br>${category}<br>${address}`)
-        .addTo(map);
-});
-
-
-// Interactivity Stuff, cursor change
-map.on('mouseenter', 'poi-layer', () => {
-    map.getCanvas().style.cursor = 'pointer';
-});
-
-map.on('mouseleave', 'poi-layer', () => {
-    map.getCanvas().style.cursor = '';
-});
-
-map.on('mouseenter', 'fall-route-points', () => {
-    map.getCanvas().style.cursor = 'pointer';
-});
-map.on('mouseleave', 'fall-route-points', () => {
-    map.getCanvas().style.cursor = '';
-});
-
-map.on('mouseenter', 'spring-route-points', () => {
-    map.getCanvas().style.cursor = 'pointer';
-});
-map.on('mouseleave', 'spring-route-points', () => {
-    map.getCanvas().style.cursor = '';
-});
-
-map.on('mouseenter', 'summer-route-points', () => {
-    map.getCanvas().style.cursor = 'pointer';
-});
-map.on('mouseleave', 'summer-route-points', () => {
-    map.getCanvas().style.cursor = '';
-});
-
-map.on('mouseenter', 'winter-route-points', () => {
-    map.getCanvas().style.cursor = 'pointer';
-});
-map.on('mouseleave', 'winter-route-points', () => {
-    map.getCanvas().style.cursor = '';
-});
-
-
-// Toggle layers for the Routes (doesnt have POI recs yet)
-document.getElementById('show-fall').addEventListener('change', (e) => {
-    console.log('Fall route toggle:', e.target.checked);
-    map.setLayoutProperty('fall-route-layer', 'visibility', e.target.checked ? 'visible' : 'none');
-    map.setLayoutProperty('fall-route-points', 'visibility', e.target.checked ? 'visible' : 'none');
-});
-
-document.getElementById('show-spring').addEventListener('change', (e) => {
-    console.log('Spring route toggle:', e.target.checked);
-    map.setLayoutProperty('spring-route-layer', 'visibility', e.target.checked ? 'visible' : 'none');
-    map.setLayoutProperty('spring-route-points', 'visibility', e.target.checked ? 'visible' : 'none');
-});
-
-document.getElementById('show-summer').addEventListener('change', (e) => {
-    console.log('Summer route toggle:', e.target.checked);
-    map.setLayoutProperty('summer-route-layer', 'visibility', e.target.checked ? 'visible' : 'none');
-    map.setLayoutProperty('summer-route-points', 'visibility', e.target.checked ? 'visible' : 'none');
-});
-
-document.getElementById('show-winter').addEventListener('change', (e) => {
-    console.log('Winter route toggle:', e.target.checked);
-    map.setLayoutProperty('winter-route-layer', 'visibility', e.target.checked ? 'visible' : 'none');
-    map.setLayoutProperty('winter-route-points', 'visibility', e.target.checked ? 'visible' : 'none');
-});
-
-//uncheck base POI layer
+//mar16 POI toggle handler
 document.getElementById('show-poi').addEventListener('change', (e) => {
-    console.log('Base POI toggle:', e.target.checked);
-    map.setLayoutProperty('poi-layer', 'visibility', e.target.checked ? 'visible' : 'none')
+    if (map.getLayer('poi-layer')) {
+        map.setLayoutProperty('poi-layer', 'visibility', e.target.checked ? 'visible' : 'none');
+    }
 });
-

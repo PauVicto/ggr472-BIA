@@ -3,7 +3,11 @@
     "features": [
         {
             "type": "Feature",
-            "properties": {},
+            "properties": {
+                "name": "Spring Walking Route",
+                "season": "spring",
+                "description": "Ivan Forrest Gardens to Kew Gardens"
+            },
             "geometry": {
                 "coordinates": [
                     [
@@ -225,9 +229,10 @@
         {
             "type": "Feature",
             "properties": {
-                "Name": "Ivan Forrest Gardens",
-                "Address": "131 Glen Manor Drive, Toronto, Ontario M4E 2X6, Canada",
-                "Note": "Start Point"
+                "name": "Ivan Forrest Gardens",
+                "address": "131 Glen Manor Drive, Toronto, Ontario M4E 2X6, Canada",
+                "note": "Start Point",
+                "type": "Park"
             },
             "geometry": {
                 "coordinates": [
@@ -235,16 +240,15 @@
                     43.672954390626074
                 ],
                 "type": "Point"
-            },
-            "id": 1
+            }
         },
         {
             "type": "Feature",
             "properties": {
-                "Name": "Kew Gardens",
-                "Address": "2075 Queen St E, Toronto, ON M4E 2N8",
-                "Note": "End point",
-                "Type": "The Gazebo, picnic spot"
+                "name": "Kew Gardens",
+                "address": "2075 Queen St E, Toronto, ON M4E 2N8",
+                "note": "End point",
+                "type": "The Gazebo, picnic spot"
             },
             "geometry": {
                 "coordinates": [
@@ -252,13 +256,14 @@
                     43.669239326196646
                 ],
                 "type": "Point"
-            },
-            "id": 2
+            }
         },
         {
             "type": "Feature",
             "properties": {
-                "Name": "Kew Gardens playground"
+                "name": "Kew Gardens playground",
+                "note": "Waypoint",
+                "type": "Recreation"
             },
             "geometry": {
                 "coordinates": [
@@ -266,8 +271,7 @@
                     43.669068996350006
                 ],
                 "type": "Point"
-            },
-            "id": 3
+            }
         }
     ]
 }

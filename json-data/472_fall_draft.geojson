@@ -4,10 +4,10 @@
         {
             "type": "Feature",
             "properties": {
-                "Name": "Owl statue: Toronto Public Library, Beaches Branch",
-                "Address": "2161 Queen Street East, Toronto, Ontario",
-                "Note": "Start Point",
-                "Type": "Historical Landmark"
+                "name": "Owl statue: Toronto Public Library, Beaches Branch",
+                "address": "2161 Queen Street East, Toronto, Ontario",
+                "note": "Start Point",
+                "type": "Historical Landmark"
             },
             "geometry": {
                 "coordinates": [
@@ -19,7 +19,11 @@
         },
         {
             "type": "Feature",
-            "properties": {},
+            "properties": {
+                "name": "Fall Walking Route",
+                "season": "fall",
+                "description": "Beaches Library owl statue through Glen Stewart Park"
+            },
             "geometry": {
                 "coordinates": [
                     [
@@ -441,9 +445,10 @@
         {
             "type": "Feature",
             "properties": {
-                "Name": "Glen Stewart Park End Trail",
-                "Address": "351 Glen Manor Dr, Toronto, ON M4E 2X8",
-                "Note": "End point"
+                "name": "Glen Stewart Park End Trail",
+                "address": "351 Glen Manor Dr, Toronto, ON M4E 2X8",
+                "note": "End point",
+                "type": "Park"
             },
             "geometry": {
                 "coordinates": [
@@ -451,13 +456,14 @@
                     43.67981145982023
                 ],
                 "type": "Point"
-            },
-            "id": 2
+            }
         },
         {
             "type": "Feature",
             "properties": {
-                "Name": "Glen Steward Park Picnic area"
+                "name": "Glen Stewart Park Picnic area",
+                "note": "Waypoint",
+                "type": "Park"
             },
             "geometry": {
                 "coordinates": [
@@ -465,13 +471,14 @@
                     43.67885483035715
                 ],
                 "type": "Point"
-            },
-            "id": 3
+            }
         },
         {
             "type": "Feature",
             "properties": {
-                "Name": "Start of Glen Stewart Hike Trail"
+                "name": "Start of Glen Stewart Hike Trail",
+                "note": "Waypoint",
+                "type": "Park"
             },
             "geometry": {
                 "coordinates": [
@@ -479,8 +486,7 @@
                     43.67558655111756
                 ],
                 "type": "Point"
-            },
-            "id": 4
+            }
         }
     ]
 }
