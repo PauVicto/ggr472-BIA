@@ -4,9 +4,10 @@
         {
             "type": "Feature",
             "properties": {
-                "Name": "Ivan Forest Gardens",
-                "Address": "131 Glen Manor Dr, Toronto, Ontario, M4E 1L1",
-                "Note": "Start point"
+                "name": "Ivan Forrest Gardens",
+                "address": "131 Glen Manor Dr, Toronto, Ontario, M4E 1L1",
+                "note": "Start point",
+                "type": "Park"
             },
             "geometry": {
                 "coordinates": [
@@ -19,9 +20,10 @@
         {
             "type": "Feature",
             "properties": {
-                "Name ": "Kew Gardens, Artificial Ice Rinkj",
-                "Address": "2075 Queen St. E., Toronto, ON, M4L 1J1",
-                "Note": "End point"
+                "name": "Kew Gardens, Artificial Ice Rink",
+                "address": "2075 Queen St. E., Toronto, ON, M4L 1J1",
+                "note": "End point",
+                "type": "Recreation"
             },
             "geometry": {
                 "coordinates": [
@@ -33,7 +35,11 @@
         },
         {
             "type": "Feature",
-            "properties": {},
+            "properties": {
+                "name": "Winter Walking Route",
+                "season": "winter",
+                "description": "Ivan Forrest Gardens to Kew Gardens Ice Rink"
+            },
             "geometry": {
                 "coordinates": [
                     [

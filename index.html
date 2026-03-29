@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Gems at the Beach BIA</title>
+    <!--mar16 add meta description -->
+    <meta name="description" content="Interactive map of Toronto's Beaches BIA featuring seasonal walking routes and points of interest." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet" />
@@ -14,15 +16,16 @@
 
     <div class="controls">
         <h3>Toggle Seasonal Routes</h3>
-        <label><input type="checkbox" id="show-fall"> Fall Route</label>
-        <label><input type="checkbox" id="show-spring"> Spring Route</label>
-        <label><input type="checkbox" id="show-summer"> Summer Route</label>
-        <label><input type="checkbox" id="show-winter"> Winter Route</label>
-        <label><input type="checkbox" id="show-poi" checked> POI </label>
+        <!--mar16 add explicit for attributes for accessibility -->
+        <label for="show-fall"><input type="checkbox" id="show-fall"> Fall Route</label>
+        <label for="show-spring"><input type="checkbox" id="show-spring"> Spring Route</label>
+        <label for="show-summer"><input type="checkbox" id="show-summer"> Summer Route</label>
+        <label for="show-winter"><input type="checkbox" id="show-winter"> Winter Route</label>
+        <label for="show-poi"><input type="checkbox" id="show-poi" checked> POI </label>
     </div>
 
 
-    <!--Legend Stuff-->
+    <!-- Legend -->
     <div class="legend">
         <h3>Legend</h3>
         <div><span class="legend-item coffee"></span> Coffee</div>
@@ -35,10 +38,11 @@
         <div><span class="legend-route Winter"></span> Winter Route</div>
     </div>
 
-        <div id="map" class="map"></div>
+    <!--mar16 add aria-label for screen reader accessibility -->
+    <div id="map" class="map" aria-label="Interactive map of Beaches BIA"></div>
 
-        <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
-        <script src="script.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

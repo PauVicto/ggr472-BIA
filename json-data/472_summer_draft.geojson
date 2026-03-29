@@ -3,7 +3,11 @@
     "features": [
         {
             "type": "Feature",
-            "properties": {},
+            "properties": {
+                "name": "Summer Walking Route",
+                "season": "summer",
+                "description": "Kew Gardens cottage through Woodbine Park to Woodbine Beach"
+            },
             "geometry": {
                 "coordinates": [
                     [
@@ -525,10 +529,10 @@
         {
             "type": "Feature",
             "properties": {
-                "Name": "Kew Gardens: The Gardener's Cottage, Kew Williams House",
-                "Address": "30 Lee Ave, Toronto, ON M4E 2N8",
-                "Note": "Start point",
-                "Type": "Historical Landmark"
+                "name": "Kew Gardens: The Gardener's Cottage, Kew Williams House",
+                "address": "30 Lee Ave, Toronto, ON M4E 2N8",
+                "note": "Start point",
+                "type": "Historical Landmark"
             },
             "geometry": {
                 "coordinates": [
@@ -536,14 +540,14 @@
                     43.66814723482065
                 ],
                 "type": "Point"
-            },
-            "id": 1
+            }
         },
         {
             "type": "Feature",
             "properties": {
-                "Name": "Circle of Trees: Woodbine Park",
-                "Type": "Monument to Irina Petrova bench"
+                "name": "Circle of Trees: Woodbine Park",
+                "type": "Monument to Irina Petrova bench",
+                "note": "Waypoint"
             },
             "geometry": {
                 "coordinates": [
@@ -551,15 +555,15 @@
                     43.665108321367455
                 ],
                 "type": "Point"
-            },
-            "id": 2
+            }
         },
         {
             "type": "Feature",
             "properties": {
-                "Name": "Woodbine Beach",
-                "Address": "1675 Lake Shore Blvd E",
-                "Note": "End Point"
+                "name": "Woodbine Beach",
+                "address": "1675 Lake Shore Blvd E",
+                "note": "End Point",
+                "type": "Park"
             },
             "geometry": {
                 "coordinates": [
@@ -567,8 +571,7 @@
                     43.66208105831066
                 ],
                 "type": "Point"
-            },
-            "id": 3
+            }
         }
     ]
 }

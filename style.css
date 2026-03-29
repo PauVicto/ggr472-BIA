@@ -1,9 +1,22 @@
+/*mar16 define shared colors as CSS custom properties */
+:root {
+    --color-coffee: #7a2e02;
+    --color-landmark: #fff700;
+    --color-park: #008000;
+    --color-recreation: #0026ff;
+    --color-fall-route: #DC7633;
+    --color-spring-route: #58D68D;
+    --color-summer-route: #F5B041;
+    --color-winter-route: #5DADE2;
+}
+
 .map {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: auto;
-    right: auto;
+    /*mar16 fix invalid left/right: auto to proper values */
+    left: 0;
+    right: 0;
     width: 100%;
 }
 
@@ -60,20 +73,21 @@
     margin-right: 8px;
 }
 
+/*mar16 align legend colors with JS icon-color values */
 .coffee {
-    background-color: #6F4E37;
+    background-color: var(--color-coffee);
 }
 
 .landmark {
-    background-color: #C0392B;
+    background-color: var(--color-landmark);
 }
 
 .park {
-    background-color: #228B22;
+    background-color: var(--color-park);
 }
 
 .recreation {
-    background-color: #2E86C1;
+    background-color: var(--color-recreation);
 }
 
 .legend-route {
@@ -87,14 +101,14 @@
 
 /* Route Legend colors*/
 .Fall {
-    background-color: #DC7633;
+    background-color: var(--color-fall-route);
 }
 .Spring {
-    background-color: #58D68D;
+    background-color: var(--color-spring-route);
 }
 .Summer {
-    background-color: #F5B041;
+    background-color: var(--color-summer-route);
 }
 .Winter {
-    background-color: #5DADE2;
+    background-color: var(--color-winter-route);
 }
