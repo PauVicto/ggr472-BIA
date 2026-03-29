@@ -7,10 +7,17 @@ const MAP_CONFIG = {
 
 //mar16 route configuration — single source of truth for all seasonal routes
 const ROUTES = [
-    { id: 'fall',   checkboxId: 'show-fall',   color: '#DC7633', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_fall_draft.geojson' },
+    { id: 'fall', checkboxId: 'show-fall', color: '#DC7633', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_fall_draft.geojson' },
     { id: 'spring', checkboxId: 'show-spring', color: '#58D68D', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_spring_draft.geojson' },
     { id: 'summer', checkboxId: 'show-summer', color: '#F5B041', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_summer_draft.geojson' },
     { id: 'winter', checkboxId: 'show-winter', color: '#5DADE2', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_winter_draft.geojson' }
+];
+
+// city amenity layers — Toronto Open Data (filtered to The Beach)
+const CITY_LAYERS = [
+    { id: 'washrooms', label: 'Washrooms', icon: 'cross', color: '#1565C0', file: 'washrooms.geojson', checkboxId: 'washrooms-toggle' },
+    { id: 'drinking-fountains', label: 'Drinking Fountains', icon: 'circle-stroked', color: '#00838F', file: 'drinking-fountains.geojson', checkboxId: 'fountains-toggle' },
+    { id: 'benches', label: 'Benches', icon: 'square', color: '#2E7D32', file: 'benches.geojson', checkboxId: 'benches-toggle' }
 ];
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicGF1LXZpY3RvIiwiYSI6ImNta2Rib2s1bTA5d2MzZW9vaGF2a3hrczkifQ.ie1nrw6qR60q70TUdf5B_w';
@@ -97,19 +104,48 @@ map.on('load', () => {
         });
     });
 
+    // city amenity layers — loop to add sources and symbol layers from config
+    CITY_LAYERS.forEach(layer => {
+        const sourceId = `${layer.id}-source`;
+        const layerId = `${layer.id}-layer`;
+
+        map.addSource(sourceId, {
+            type: 'geojson',
+            data: `https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/${layer.file}`,
+            generateId: true
+        });
+
+        map.addLayer({
+            id: layerId,
+            type: 'symbol',
+            source: sourceId,
+            layout: {
+                'icon-image': layer.icon,
+                'icon-size': 0.9,
+                'icon-allow-overlap': true,
+                'visibility': 'none'
+            },
+            paint: {
+                'icon-color': layer.color,
+                'icon-opacity': 0.85
+            }
+        });
+    });
+
 });
 
-//mar16 shared popup helper — handles both POI (lowercase) and route (lowercase after schema fix) properties
+//mar16 shared popup helper — handles POI, route, and city amenity layer properties
 function showPopup(e) {
     if (!e.features || !e.features[0]) return;
     const props = e.features[0].properties;
     const name = props.name || props.Name || 'Unknown';
-    const detail = props.category || props.note || props.Note || '';
+    const detail = props.category || props.type || props.note || props.Note || '';
     const address = props.address || props.Address || '';
+    const extra = props.hours ? `<br>${props.hours}` : (props.location_details ? `<br>${props.location_details}` : '');
 
     new mapboxgl.Popup()
         .setLngLat(e.features[0].geometry.coordinates)
-        .setHTML(`<strong>${name}</strong><br>${detail}<br>${address}`)
+        .setHTML(`<strong>${name}</strong><br>${detail}<br>${address}${extra}`)
         .addTo(map);
 }
 
@@ -123,6 +159,13 @@ ROUTES.forEach(route => {
     const pointLayerId = `${route.id}-route-points`;
     interactiveLayers.push(pointLayerId);
     map.on('click', pointLayerId, showPopup);
+});
+
+// city amenity layer click handlers
+CITY_LAYERS.forEach(layer => {
+    const layerId = `${layer.id}-layer`;
+    interactiveLayers.push(layerId);
+    map.on('click', layerId, showPopup);
 });
 
 //mar16 loop for cursor change on all interactive layers
@@ -157,4 +200,14 @@ document.getElementById('show-poi').addEventListener('change', (e) => {
     if (map.getLayer('poi-layer')) {
         map.setLayoutProperty('poi-layer', 'visibility', e.target.checked ? 'visible' : 'none');
     }
+});
+
+// city amenity toggle handlers
+CITY_LAYERS.forEach(layer => {
+    const layerId = `${layer.id}-layer`;
+    document.getElementById(layer.checkboxId).addEventListener('change', (e) => {
+        if (map.getLayer(layerId)) {
+            map.setLayoutProperty(layerId, 'visibility', e.target.checked ? 'visible' : 'none');
+        }
+    });
 });

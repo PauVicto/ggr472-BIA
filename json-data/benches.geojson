@@ -1,0 +1,455 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.3006837225451,
+          43.6699718477221
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00586",
+        "address": "1982 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2967355101863,
+          43.6706714095085
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00590",
+        "address": "98 Leuty Ave",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2960027752921,
+          43.670832812213
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00621",
+        "address": "2215 Queen St E",
+        "status": "Temporarily Removed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2933294467444,
+          43.6715407171596
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00802",
+        "address": "2140 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.3026192919246,
+          43.6695365715181
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00719",
+        "address": "1952 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.3004731105406,
+          43.669874698024
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00743",
+        "address": "1977 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.3042990096276,
+          43.6691519793254
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00559",
+        "address": "1906 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2951516905295,
+          43.6711598206157
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00407",
+        "address": "2116 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2973896153144,
+          43.6705411243701
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00384",
+        "address": "2183 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2983059298659,
+          43.6704959739169
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00386",
+        "address": "2034 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2968727908814,
+          43.6709788778004
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00400",
+        "address": "1A Hambly Ave",
+        "status": "Temporarily Removed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.306169609742,
+          43.6687324640423
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-01930",
+        "address": "1880 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2886389900396,
+          43.6724918439398
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-01931",
+        "address": "2212 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.3017557361599,
+          43.6697206215444
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-02568",
+        "address": "1966 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.302092362653,
+          43.6696483660932
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00593",
+        "address": "1960 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2941012760528,
+          43.6712259384407
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00807",
+        "address": "2259 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2996277482285,
+          43.670188976919
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00405",
+        "address": "2004 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.296238308564,
+          43.6709300865664
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00800",
+        "address": "2092 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2907686454597,
+          43.6720734197168
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-02479",
+        "address": "2178 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2879385879551,
+          43.672639923712
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-01993",
+        "address": "2224 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2966545615403,
+          43.6708504189385
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00568",
+        "address": "2076 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2826153872955,
+          43.6737405977019
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-02557",
+        "address": "2330 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.3000551074207,
+          43.6701003690438
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-01893",
+        "address": "2006 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2925317676844,
+          43.6717145369995
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-00693",
+        "address": "131 Glen Manor Dr",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.3057358637539,
+          43.6689039591894
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-02720",
+        "address": "1884 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2947941834842,
+          43.6712227917651
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-02558",
+        "address": "2118 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.3059242954031,
+          43.6688629271511
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-01929",
+        "address": "None None",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2976980209788,
+          43.6704745566924
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-01345",
+        "address": "2173 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2959144280143,
+          43.6711268538555
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-02197",
+        "address": "2100 Queen St E",
+        "status": "Existing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2834965069768,
+          43.6735567886986
+        ]
+      },
+      "properties": {
+        "name": "Bench BE-02354",
+        "address": "2312 Queen St E",
+        "status": "Existing"
+      }
+    }
+  ]
+}

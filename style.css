@@ -8,6 +8,9 @@
     --color-spring-route: #58D68D;
     --color-summer-route: #F5B041;
     --color-winter-route: #5DADE2;
+    --color-washroom: #1565C0;
+    --color-fountain: #00838F;
+    --color-bench: #2E7D32;
 }
 
 .map {
@@ -111,4 +114,42 @@
 }
 .Winter {
     background-color: var(--color-winter-route);
+}
+
+/* washroom: cross/plus shape */
+.washroom-icon {
+    background-color: transparent;
+    position: relative;
+    border-radius: 0;
+}
+.washroom-icon::before,
+.washroom-icon::after {
+    content: '';
+    position: absolute;
+    background-color: var(--color-washroom);
+}
+.washroom-icon::before {
+    width: 10px;
+    height: 4px;
+    top: 3px;
+    left: 0;
+}
+.washroom-icon::after {
+    width: 4px;
+    height: 10px;
+    top: 0;
+    left: 3px;
+}
+
+/* fountain: hollow circle (circle-stroked) */
+.fountain-icon {
+    background-color: transparent;
+    border: 2px solid var(--color-fountain);
+    border-radius: 50%;
+}
+
+/* bench: filled square */
+.bench-icon {
+    background-color: var(--color-bench);
+    border-radius: 0;
 }
