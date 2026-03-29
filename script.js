@@ -22,6 +22,30 @@ const CITY_LAYERS = [
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicGF1LXZpY3RvIiwiYSI6ImNta2Rib2s1bTA5d2MzZW9vaGF2a3hrczkifQ.ie1nrw6qR60q70TUdf5B_w';
 
+//mar29 track active route id to reset line-width when switching routes
+let activeRouteId = null;
+
+//mar29 custom control to fly back to default map extent
+class ZoomToExtentControl {
+    onAdd(map) {
+        this._map = map;
+        this._container = document.createElement('div');
+        this._container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
+        const btn = document.createElement('button');
+        btn.className = 'zoom-extent-btn';
+        btn.title = 'Zoom to full extent';
+        btn.addEventListener('click', () => {
+            map.flyTo({ center: MAP_CONFIG.center, zoom: MAP_CONFIG.zoom });
+        });
+        this._container.appendChild(btn);
+        return this._container;
+    }
+    onRemove() {
+        this._container.parentNode.removeChild(this._container);
+        this._map = undefined;
+    }
+}
+
 const map = new mapboxgl.Map({
     container: 'map',
     style: MAP_CONFIG.style,
@@ -30,6 +54,7 @@ const map = new mapboxgl.Map({
 });
 
 map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+map.addControl(new ZoomToExtentControl(), 'top-right');
 
 map.on('load', () => {
 
@@ -104,6 +129,37 @@ map.on('load', () => {
         });
     });
 
+    //mar29 route line click — isolate route, highlight, and zoom to extent
+    ROUTES.forEach(route => {
+        map.on('click', `${route.id}-route-layer`, () => {
+            //mar29 reset previous route's line-width before switching
+            if (activeRouteId && activeRouteId !== route.id) {
+                map.setPaintProperty(`${activeRouteId}-route-layer`, 'line-width', 2);
+            }
+            activeRouteId = route.id;
+
+            //mar29 hide all other routes, show clicked one, sync checkboxes
+            ROUTES.forEach(r => {
+                const isActive = r.id === route.id;
+                const vis = isActive ? 'visible' : 'none';
+                map.setLayoutProperty(`${r.id}-route-layer`, 'visibility', vis);
+                map.setLayoutProperty(`${r.id}-route-points`, 'visibility', vis);
+                document.getElementById(r.checkboxId).checked = isActive;
+            });
+            map.setPaintProperty(`${route.id}-route-layer`, 'line-width', 4);
+
+            //mar29 fit map to full extent of clicked route's LineString
+            const features = map.querySourceFeatures(`${route.id}-route`, {
+                filter: ['==', '$type', 'LineString']
+            });
+            if (features.length > 0) {
+                const bounds = new mapboxgl.LngLatBounds();
+                features.forEach(f => f.geometry.coordinates.forEach(c => bounds.extend([c[0], c[1]])));
+                map.fitBounds(bounds, { padding: 60 });
+            }
+        });
+    });
+
     // city amenity layers — loop to add sources and symbol layers from config
     CITY_LAYERS.forEach(layer => {
         const sourceId = `${layer.id}-source`;
@@ -155,8 +211,11 @@ map.on('click', 'poi-layer', showPopup);
 //mar16 loop for route point popups and cursor handlers
 const interactiveLayers = ['poi-layer'];
 
+//mar29 push both line and point layer ids for cursor and click handling
 ROUTES.forEach(route => {
+    const lineLayerId = `${route.id}-route-layer`;
     const pointLayerId = `${route.id}-route-points`;
+    interactiveLayers.push(lineLayerId);
     interactiveLayers.push(pointLayerId);
     map.on('click', pointLayerId, showPopup);
 });
