@@ -5,12 +5,36 @@ const MAP_CONFIG = {
     style: 'mapbox://styles/pau-victo/cmmqya137000y01s64wtr7038'
 };
 
-//mar16 route configuration — single source of truth for all seasonal routes
+//mar29 route configuration — extended with label, description, and start/end metadata
 const ROUTES = [
-    { id: 'fall', checkboxId: 'show-fall', color: '#DC7633', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_fall_draft.geojson' },
-    { id: 'spring', checkboxId: 'show-spring', color: '#58D68D', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_spring_draft.geojson' },
-    { id: 'summer', checkboxId: 'show-summer', color: '#F5B041', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_summer_draft.geojson' },
-    { id: 'winter', checkboxId: 'show-winter', color: '#5DADE2', url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_winter_draft.geojson' }
+    {
+        id: 'fall', color: '#DC7633',
+        label: 'Fall Route',
+        description: 'Wander through the Glen Stewart Ravine as the leaves turn.',
+        from: 'Beaches Library', to: 'Glen Stewart Park',
+        url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_fall_draft.geojson'
+    },
+    {
+        id: 'spring', color: '#58D68D',
+        label: 'Spring Route',
+        description: 'Stroll from Ivan Forrest Gardens to Kew Gardens in full bloom.',
+        from: 'Ivan Forrest Gardens', to: 'Kew Gardens Gazebo',
+        url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_spring_draft.geojson'
+    },
+    {
+        id: 'summer', color: '#F5B041',
+        label: 'Summer Route',
+        description: 'From Kew Gardens Cottage through Woodbine Park to the Beach.',
+        from: 'Kew Gardens Cottage', to: 'Woodbine Beach',
+        url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_summer_draft.geojson'
+    },
+    {
+        id: 'winter', color: '#5DADE2',
+        label: 'Winter Route',
+        description: 'A calm walk from Ivan Forrest Gardens to the Kew Gardens Ice Rink.',
+        from: 'Ivan Forrest Gardens', to: 'Kew Gardens Ice Rink',
+        url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_winter_draft.geojson'
+    }
 ];
 
 // city amenity layers — Toronto Open Data (filtered to The Beach)
@@ -138,14 +162,8 @@ map.on('load', () => {
             }
             activeRouteId = route.id;
 
-            //mar29 hide all other routes, show clicked one, sync checkboxes
-            ROUTES.forEach(r => {
-                const isActive = r.id === route.id;
-                const vis = isActive ? 'visible' : 'none';
-                map.setLayoutProperty(`${r.id}-route-layer`, 'visibility', vis);
-                map.setLayoutProperty(`${r.id}-route-points`, 'visibility', vis);
-                document.getElementById(r.checkboxId).checked = isActive;
-            });
+            //mar29 hide all other routes, show clicked one, sync panel states
+            ROUTES.forEach(r => setRouteActive(r.id, r.id === route.id));
             map.setPaintProperty(`${route.id}-route-layer`, 'line-width', 4);
 
             //mar29 fit map to full extent of clicked route's LineString
@@ -237,19 +255,31 @@ interactiveLayers.forEach(layerId => {
     });
 });
 
-//mar16 loop for route toggle handlers
-ROUTES.forEach(route => {
-    const lineLayerId = `${route.id}-route-layer`;
-    const pointLayerId = `${route.id}-route-points`;
+//mar29 shared helper — sets route layer visibility and syncs panel active state
+function setRouteActive(routeId, active) {
+    const vis = active ? 'visible' : 'none';
+    if (map.getLayer(`${routeId}-route-layer`))
+        map.setLayoutProperty(`${routeId}-route-layer`, 'visibility', vis);
+    if (map.getLayer(`${routeId}-route-points`))
+        map.setLayoutProperty(`${routeId}-route-points`, 'visibility', vis);
+    const panel = document.getElementById(`panel-${routeId}`);
+    if (panel) panel.classList.toggle('active', active);
+}
 
-    document.getElementById(route.checkboxId).addEventListener('change', (e) => {
-        const visibility = e.target.checked ? 'visible' : 'none';
-        //mar16 add layer existence check before toggling
-        if (map.getLayer(lineLayerId)) {
-            map.setLayoutProperty(lineLayerId, 'visibility', visibility);
-        }
-        if (map.getLayer(pointLayerId)) {
-            map.setLayoutProperty(pointLayerId, 'visibility', visibility);
+//mar29 panel click — toggle route on/off and reset highlight if deactivating
+ROUTES.forEach(route => {
+    document.getElementById(`panel-${route.id}`).addEventListener('click', () => {
+        const panel = document.getElementById(`panel-${route.id}`);
+        const isActive = panel.classList.contains('active');
+        if (isActive) {
+            if (activeRouteId === route.id) {
+                if (map.getLayer(`${route.id}-route-layer`))
+                    map.setPaintProperty(`${route.id}-route-layer`, 'line-width', 2);
+                activeRouteId = null;
+            }
+            setRouteActive(route.id, false);
+        } else {
+            setRouteActive(route.id, true);
         }
     });
 });
