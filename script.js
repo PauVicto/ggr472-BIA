@@ -15,7 +15,7 @@ const ROUTES = [
         url: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/472_fall_draft.geojson'
     },
     {
-        id: 'spring', color: '#58D68D',
+        id: 'spring', color: '#febcd0',
         label: 'Spring Route',
         description: 'Stroll from Ivan Forrest Gardens to Kew Gardens in full bloom.',
         from: 'Ivan Forrest Gardens', to: 'Kew Gardens Gazebo',
@@ -101,7 +101,7 @@ map.on('load', () => {
                 'Recreation', 'circle',
                 'marker'
             ],
-            'icon-size': 0.9,
+            'icon-size': 1.1,
             'icon-allow-overlap': true
         },
         paint: {
