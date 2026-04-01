@@ -115,6 +115,7 @@ map.on('load', () => {
             ]
         }
     });
+    //TODO: why is this more efficient than how prof adds layers in class
     //mar16 loop to add all route sources and layers from config
     ROUTES.forEach(route => {
         const sourceId = `${route.id}-route`;
