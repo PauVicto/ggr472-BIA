@@ -2,7 +2,7 @@
 const MAP_CONFIG = {
     center: [-79.30043604297481, 43.66746180866858],
     zoom: 14,
-    style: 'mapbox://styles/pau-victo/cmmqya137000y01s64wtr7038'
+    style: 'mapbox://styles/chloeloh/cmnfdfykw002x01s858iec25z'
 };
 
 //mar29 route configuration — extended with label, description, and start/end metadata
@@ -44,7 +44,7 @@ const CITY_LAYERS = [
     { id: 'benches', label: 'Benches', icon: 'square', color: '#2E7D32', file: 'benches.geojson', checkboxId: 'benches-toggle' }
 ];
 
-mapboxgl.accessToken = 'pk.eyJ1IjoicGF1LXZpY3RvIiwiYSI6ImNta2Rib2s1bTA5d2MzZW9vaGF2a3hrczkifQ.ie1nrw6qR60q70TUdf5B_w';
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2hsb2Vsb2giLCJhIjoiY21sZ3UwZWYzMDIyazNocHNmcnFvbWZiNCJ9.S_Bvs5AGp4m2AF22M0fdiQ';
 
 //mar29 track active route id to reset line-width when switching routes
 let activeRouteId = null;
