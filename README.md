@@ -1,6 +1,6 @@
 # Gems at the Beach BIA: Interactive Web Map
 
-Our [interactive geospatial application] (https://pauvicto.github.io/ggr472-BIA/) designed for **The Beaches (BIA)** in Toronto. This application visualizes curated seasonal walking routes and integrates dynamic public infrastructure data sourced directly from the City of Toronto Open Data Portal.
+Our [interactive geospatial application](https://pauvicto.github.io/ggr472-BIA/) designed for **The Beaches (BIA)** in Toronto. This application visualizes curated seasonal walking routes and integrates dynamic public infrastructure data sourced directly from the City of Toronto Open Data Portal.
 
 ## Key Features
 * **Seasonal Walking Routes**: Four distinct routes (**Fall, Spring, Summer, Winter**) featuring metadata for descriptions and unique theme colors.
