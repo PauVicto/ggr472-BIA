@@ -33,28 +33,27 @@
     flex-direction: column;
     gap: 10px;
     z-index: 10;
-    width: 230px;
+    width: 270px;
 }
 
 .route-panel {
     display: flex;
-    background: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-    transition: box-shadow 0.2s, opacity 0.2s, background 0.2s;
-    opacity: 0.68;
+    transition: box-shadow 0.2s, background 0.2s;
+    opacity: 1;
 }
 
 .route-panel:hover {
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-    opacity: 0.88;
 }
 
 .route-panel.active {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.97);
+    background: rgba(255, 255, 255, 1);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
 }
 
@@ -122,13 +121,13 @@
 
 .stop-name {
     white-space: nowrap;
-    max-width: 68px;
+    max-width: 100px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .amenities-panel {
-    background: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 8px;
     padding: 10px 14px;
     font-family: Arial, sans-serif;
