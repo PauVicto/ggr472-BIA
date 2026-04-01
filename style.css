@@ -43,8 +43,9 @@
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-    transition: box-shadow 0.2s, background 0.2s;
+    transition: box-shadow 0.2s, background 0.2s, border-color 0.2s;
     opacity: 1;
+    border: 2px solid var(--panel-color, #ccc);
 }
 
 .route-panel:hover {
@@ -58,14 +59,11 @@
 }
 
 .panel-stripe {
-    width: 6px;
-    background-color: var(--panel-color, #ccc);
-    flex-shrink: 0;
-    transition: width 0.2s;
+    display: none;
 }
 
 .route-panel.active .panel-stripe {
-    width: 8px;
+    display: none;
 }
 
 .panel-body {
@@ -178,29 +176,25 @@
     margin-bottom: 5px;
 }
 
+/* temporary fix: replaced colored circles with Maki SVG img tags to match actual map icons */
+.legend-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* temporary fix: CSS filter tints match icon-color values in CITY_LAYERS config */
+/* .legend-icon--washroom { filter: invert(16%) sepia(98%) saturate(1200%) hue-rotate(210deg) brightness(90%); } → #1565C0 */
+/* .legend-icon--fountain { filter: invert(35%) sepia(80%) saturate(600%) hue-rotate(155deg) brightness(90%); }  → #00838F */
+/* .legend-icon--bench    { filter: invert(30%) sepia(60%) saturate(500%) hue-rotate(100deg) brightness(80%); }  → #2E7D32 */
+
 .legend-item {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     display: inline-block;
     margin-right: 8px;
-}
-
-/*mar16 align legend colors with JS icon-color values */
-.coffee {
-    background-color: var(--color-coffee);
-}
-
-.landmark {
-    background-color: var(--color-landmark);
-}
-
-.park {
-    background-color: var(--color-park);
-}
-
-.recreation {
-    background-color: var(--color-recreation);
 }
 
 .legend-route {
@@ -226,43 +220,6 @@
     background-color: var(--color-winter-route);
 }
 
-/* washroom: cross/plus shape */
-.washroom-icon {
-    background-color: transparent;
-    position: relative;
-    border-radius: 0;
-}
-.washroom-icon::before,
-.washroom-icon::after {
-    content: '';
-    position: absolute;
-    background-color: var(--color-washroom);
-}
-.washroom-icon::before {
-    width: 10px;
-    height: 4px;
-    top: 3px;
-    left: 0;
-}
-.washroom-icon::after {
-    width: 4px;
-    height: 10px;
-    top: 0;
-    left: 3px;
-}
-
-/* fountain: hollow circle (circle-stroked) */
-.fountain-icon {
-    background-color: transparent;
-    border: 2px solid var(--color-fountain);
-    border-radius: 50%;
-}
-
-/* bench: filled square */
-.bench-icon {
-    background-color: var(--color-bench);
-    border-radius: 0;
-}
 
 /* zoom to full extent control button */
 .zoom-extent-btn {

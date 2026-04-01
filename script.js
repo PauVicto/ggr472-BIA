@@ -101,18 +101,11 @@ map.on('load', () => {
                 'Recreation', 'circle',
                 'marker'
             ],
-            'icon-size': 1.1,
+            'icon-size': 0.66,
             'icon-allow-overlap': true
         },
         paint: {
-            'icon-opacity': 0.8,
-            'icon-color': ['match', ['get', 'category'],
-                'Coffee', '#7a2e02',
-                'Landmark/Attraction', '#fff700',
-                'Parks/Greenspaces', '#008000',
-                'Recreation', '#0026ff',
-                '#FFFFFF'
-            ]
+            'icon-opacity': 0.8
         }
     });
     //TODO: why is this more efficient than how prof adds layers in class
@@ -146,7 +139,7 @@ map.on('load', () => {
             filter: ['==', '$type', 'Point'],
             layout: {
                 'icon-image': 'star',
-                'icon-size': 1.2,
+                'icon-size': 0.66,
                 'icon-allow-overlap': true,
                 'visibility': 'none'
             }
@@ -170,7 +163,7 @@ map.on('load', () => {
             source: sourceId,
             layout: {
                 'icon-image': layer.icon,
-                'icon-size': 0.9,
+                'icon-size': 0.66,
                 'icon-allow-overlap': true,
                 'visibility': 'none'
             },
@@ -236,7 +229,13 @@ function setRouteActive(routeId, active) {
     if (map.getLayer(`${routeId}-route-points`))
         map.setLayoutProperty(`${routeId}-route-points`, 'visibility', vis);
     const panel = document.getElementById(`panel-${routeId}`);
-    if (panel) panel.classList.toggle('active', active);
+    //apr1 find corresponding color route, apply border if panel is active, remove border when panel inactive
+    if (panel){
+        panel.classList.toggle('active', active);
+
+        const routeData = ROUTES.find(r => r.id === routeId);
+        panel.style.border = active ? `2px solid ${routeData.color}` : 'none';
+    } 
 }
 
 //mar29 fetch-based bounds cache — avoids querySourceFeatures tile-load race condition
@@ -256,6 +255,12 @@ function getRouteBounds(route) {
     }
     return routeBoundsCache[route.id];
 }
+
+//apr1 ensures panels start with no border before any interaction
+ROUTES.forEach(route => {
+    const panel = document.getElementById(`panel-${route.id}`);
+    if (panel) panel.style.border = 'none';
+});
 
 //mar29 panel click — toggle route, zoom to extent on activate, full extent when none active
 ROUTES.forEach(route => {
