@@ -28,5 +28,4 @@ Our interactive geospatial application designed for **The Beaches (BIA)** in Tor
 * `fetch-data.js`: Backend script for data retrieval.
 * `/json-data/`: Local storage for seasonal route drafts and processed amenity GeoJSONs.
 
-**Authors**: Chloe Loh, Rohan Hemrajani, Victoria Pau
-**Course**: GGR472 - Developing Web Maps 
+**Created by**: Chloe Loh, Rohan Hemrajani, and Victoria Pau, for **GGR472** - Developing Web Maps 
