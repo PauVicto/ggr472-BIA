@@ -115,7 +115,7 @@ map.on('load', () => {
             ]
         }
     });
-
+    //TODO: why is this more efficient than how prof adds layers in class
     //mar16 loop to add all route sources and layers from config
     ROUTES.forEach(route => {
         const sourceId = `${route.id}-route`;
@@ -297,13 +297,6 @@ ROUTES.forEach(route => {
             });
         }
     });
-});
-
-//mar16 POI toggle handler
-document.getElementById('show-poi').addEventListener('change', (e) => {
-    if (map.getLayer('poi-layer')) {
-        map.setLayoutProperty('poi-layer', 'visibility', e.target.checked ? 'visible' : 'none');
-    }
 });
 
 // city amenity toggle handlers
