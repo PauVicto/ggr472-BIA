@@ -85,7 +85,7 @@ map.on('load', () => {
     // Base POI source and Layer
     map.addSource('poi', {
         type: 'geojson',
-        data: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/lab3map.geojson',
+        data: 'https://raw.githubusercontent.com/PauVicto/ggr472-BIA/refs/heads/main/json-data/poi.geojson',
         generateId: true
     });
 
