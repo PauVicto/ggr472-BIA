@@ -36,6 +36,32 @@
     width: 270px;
 }
 
+/*apr10 Bootstrap md breakpoint (>=768px), sidebar already at 270px, no change needed */
+/*apr10 Bootstrap sm breakpoint (<768px), narrow sidebar on tablet/phone */
+@media (max-width: 767.98px) {
+    .sidebar {
+        width: 220px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .sidebar {
+        width: 180px;
+        top: 10px;
+        left: 10px;
+    }
+}
+
+/*apr10 Scrollable container for route panels when more routes are added, works on all screen sizes */
+.panels-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    /* reserves space for amenities panel (~90px) and sidebar top offset and padding */
+    max-height: calc(100vh - 160px);
+}
+
 .route-panel {
     display: flex;
     background: rgba(255, 255, 255, 0.95);
